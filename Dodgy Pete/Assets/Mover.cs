@@ -10,17 +10,28 @@ public class Mover : MonoBehaviour
   void Start()
   {
     // we access the transform of the object and the method Translate and define where it should go as (x,y,z). Add 1, add 0, add 0
+    PrintInstructions();
   }
 
 
   // Update is called once per frame
   void Update()
   {
+    MovePlayer();
+  }
 
-    // transform.Translate(xValue, yValue, zValue);
+  void PrintInstructions()
+  {
+    Debug.Log("Welcome to the game");
+    Debug.Log("Move Dodgy Pete with WASD or with arrow keys.");
+    Debug.Log("Try to avoid hitting any obstacles or walls.");
+  }
+
+  void MovePlayer()
+  {
     float xValue = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
     float zValue = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-
     transform.Translate(xValue, 0, zValue);
+    // transform.Translate(xValue, yValue, zValue);
   }
 }
